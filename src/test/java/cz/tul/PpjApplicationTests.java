@@ -57,7 +57,7 @@ public class PpjApplicationTests {
 
 	}
 	@Test
-	public void testFinByAutor(){
+	public void testFindByAutor(){
 
 		boolean exist =false;
 		long count = baseImagesRepository.countByAutor(autor);

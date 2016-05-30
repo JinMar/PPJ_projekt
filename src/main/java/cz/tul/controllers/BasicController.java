@@ -444,11 +444,12 @@ public class BasicController {
     @ResponseBody
     List<Box> imgBytag(@PathVariable("id") String id) {
         List<Box> boxes = new ArrayList<>();
-        Images image = baseImagesRepository.findOne(id);
+        System.out.println(baseImagesRepository.count());
+        Images image = baseImagesRepository.findByTagsesLike(id);
 
             Box box =new Box();
             box.setAutorId(image.getAutor().getId());
-            box.setImageId(id);
+            box.setImageId(image.getId());
             box.setName(image.getTagses());
             box.setUrl(image.getUrl());
 

@@ -40,20 +40,15 @@ public class DBProvisioner implements InitializingBean {
         Images images1 = new Images("" + ObjectId.get(),"http://dirk.kmi.tul.cz/faculty/logo/TUL.png", "test", new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()), autor,0);
         Images images2 = new Images("" + ObjectId.get(),"http://img7.rajce.idnes.cz/d0703/0/469/469473_c83cd82fcc6814eb037e5b01f49ba246/images/sporic_Bomba.jpg", "test22", new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()), autor,1);
         Images images3 = new Images("" + ObjectId.get(),"http://img8.rajce.idnes.cz/d0802/0/470/470054_ec2a8356210bb9129c6a15abff1a2572/images/Lebka_cernobila.JPG", "test33", new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()), autor,2);
+        Images images4 = new Images("" + ObjectId.get(),"/img/logo.png", "test33", new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()), autor,3);
 
     images2.setTagses("ahoj test neco");
         baseAutorRepository.save(autor);
         baseImagesRepository.save(images1);
         baseImagesRepository.save(images2);
         baseImagesRepository.save(images3);
+        baseImagesRepository.save(images4);
 
-        /*
-        Comment cmmentInit = new Comment(""+ObjectId.get(),"init comment", new Date(System.currentTimeMillis()),images.get(0),autors.get(0));
-        Comment cmmentInit2 = new Comment(""+ObjectId.get(),"init comment", new Date(System.currentTimeMillis()),images.get(1),autors.get(0));
-        Comment cmmentInit3 = new Comment(""+ObjectId.get(),"init comment1", new Date(System.currentTimeMillis()),images.get(2),autors.get(0));
-        Comment cmmentInit4 = new Comment(""+ObjectId.get(),"init comment", new Date(System.currentTimeMillis()),images.get(1),autors.get(0));
-        Comment cmmentInit5 = new Comment(""+ObjectId.get(),"init comment11", new Date(System.currentTimeMillis()),images.get(2),autors.get(0));
-        */
 
         return false;
     }
