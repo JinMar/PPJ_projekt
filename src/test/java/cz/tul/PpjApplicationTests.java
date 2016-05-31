@@ -1,5 +1,6 @@
 package cz.tul;
 
+import cz.tul.client.ServerApi;
 import cz.tul.data.Autor;
 import cz.tul.data.Images;
 import cz.tul.repositories.BaseAutorRepository;
@@ -14,9 +15,11 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
+import retrofit.RestAdapter;
+
 
 import java.util.Date;
-import java.util.List;
+
 import java.util.UUID;
 
 import static org.junit.Assert.assertTrue;
@@ -32,12 +35,14 @@ public class PpjApplicationTests {
 	BaseCommentRepository baseCommentRepository;
 	@Autowired
 	BaseAutorRepository baseAutorRepository;
+
+
 	@Test
 	public void contextLoads() {
 	}
 	Autor autor = new Autor(UUID.randomUUID(), "ClassTest Autor", new Date(System.currentTimeMillis()));
 	Images insert = new Images( UUID.randomUUID(),"test","testovaci", new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()), autor);
-
+	Images insert2 = new Images( UUID.randomUUID(),"test","pokus", new Date(System.currentTimeMillis()+1000), new Date(System.currentTimeMillis()+1000), autor);
 
 	@Before
 	public void init(){
