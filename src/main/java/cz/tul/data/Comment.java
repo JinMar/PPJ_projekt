@@ -29,17 +29,19 @@ public class Comment {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID")
     private Autor autor;
-    @Column(name = "like",columnDefinition = "int default 0")
+    @Column(name = "like", columnDefinition = "int default 0")
     private int like;
-    @Column(name = "dislike",columnDefinition = "int default 0")
+    @Column(name = "dislike", columnDefinition = "int default 0")
     private int dislike;
-    public Comment(String id,String description, Date createDate, Images images, Autor autor) {
-       this.id=id;
+
+    public Comment(String id, String description, Date createDate, Images images, Autor autor) {
+        this.id = id;
         this.description = description;
         this.createDate = createDate;
         this.images = images;
         this.autor = autor;
     }
+
     public Comment() {
 
     }
@@ -100,10 +102,11 @@ public class Comment {
         this.autor = autor;
     }
 
-    public void incrementLike(){
+    public void incrementLike() {
         like++;
     }
-    public void incrementDisLike(){
+
+    public void incrementDisLike() {
         dislike++;
     }
 }

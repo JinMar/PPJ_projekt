@@ -1,7 +1,6 @@
 package cz.tul.data;
 
 
-
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
@@ -22,21 +21,23 @@ public class Autor {
     private String id;
 
     @Column(name = "createDate")
-    private Date createDate;
+    private Date createdate;
     @Column(name = "Name")
     private String name;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "autor")
     private Set<Images> images = new HashSet<>(0);
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "images")
     private Set<Comment> comments = new HashSet<>(0);
+
     public Autor() {
 
 
     }
-    public Autor(String id,String name, Date createDate) {
+
+    public Autor(String id, String name, Date createDate) {
         this.name = name;
-        this.createDate = createDate;
-        this.id=id;
+        this.createdate = createDate;
+        this.id = id;
 
     }
 
@@ -45,8 +46,8 @@ public class Autor {
         return id;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public Date getCreatedate() {
+        return createdate;
     }
 
     public String getName() {
@@ -57,13 +58,16 @@ public class Autor {
         return images;
     }
 
-    public Set<Comment> getComments() { return comments;}
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setCreatedate(Date createDate) {
+        this.createdate = createDate;
     }
 
     public void setName(String name) {

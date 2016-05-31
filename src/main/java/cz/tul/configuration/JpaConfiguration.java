@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
-@Profile({ "mysql","test"})
+@Profile({"mysql", "test"})
 @ImportAutoConfiguration({
         HibernateJpaAutoConfiguration.class,
         DataSourceAutoConfiguration.class,
@@ -17,12 +17,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 })
 @EnableJpaRepositories(basePackages = "cz.tul.repositories")
 public class JpaConfiguration {
-
-
-
-
-
-
 
 
 }

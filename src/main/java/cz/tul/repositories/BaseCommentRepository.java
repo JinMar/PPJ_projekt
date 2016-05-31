@@ -11,6 +11,6 @@ import java.util.List;
  * Created by Marek on 28.05.2016.
  */
 
-public interface BaseCommentRepository  extends CrudRepository<Comment, String> {
+public interface BaseCommentRepository extends CrudRepository<Comment, String> {
     List<Comment> findByImages(Images images);
 }

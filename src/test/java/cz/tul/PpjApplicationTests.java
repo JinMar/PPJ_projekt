@@ -17,6 +17,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import static org.junit.Assert.assertTrue;
 
@@ -35,12 +36,12 @@ public class PpjApplicationTests {
 	public void contextLoads() {
 	}
 	Autor autor = new Autor("" + ObjectId.get(), "ClassTest Autor", new Date(System.currentTimeMillis()));
-	Images insert = new Images( ""+ObjectId.get(),"test","testovaci", new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()), autor,4);
+	Images insert = new Images( UUID.fromString("a161616c1b1654b"),"test","testovaci", new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()), autor);
 
 
 	@Before
 	public void init(){
-		insert.setTagses("ahoj cus neco");
+		insert.setTags("ahoj cus neco");
 		baseAutorRepository.save(autor);
 		baseImagesRepository.save(insert);
 
@@ -69,7 +70,7 @@ public class PpjApplicationTests {
 	@Test
 	public void testFingByTag(){
 		boolean exist =false;
-		Images list = baseImagesRepository.findByTagsesLike("neco");
+		Images list = baseImagesRepository.findByTagsLike("neco");
 		if(list !=null){exist=true;}
 		assertTrue("Nenalezen žádný obrázek podle tagu", exist);
 	}
