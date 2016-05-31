@@ -36,7 +36,7 @@ public class PpjApplicationTests {
 	public void contextLoads() {
 	}
 	Autor autor = new Autor("" + ObjectId.get(), "ClassTest Autor", new Date(System.currentTimeMillis()));
-	Images insert = new Images( UUID.fromString("a161616c1b1654b"),"test","testovaci", new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()), autor);
+	Images insert = new Images( UUID.randomUUID(),"test","testovaci", new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()), autor);
 
 
 	@Before
