@@ -73,7 +73,7 @@ public class Images {
 
 
     public void addTag(String tag) {
-        tags += "|" + tag;
+        tags += "|" + tag.substring(0, 16);
     }
 
 
