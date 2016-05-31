@@ -83,24 +83,24 @@
                             <div class="rating">
                                 <form:form method="GET"
                                            action="/like/id=${current}&com=${post.id}&next=${next}&prv=${previous}">
-                                    <input type="submit" value="Like: ${post.likes}"/>
+                                    <input type="submit" value="Like: ${post.like}"/>
                                 </form:form>
                                 <form:form method="GET"
                                            action="/dislike/id=${current}&com=${post.id}&next=${next}&prv=${previous}">
-                                    <input type="submit" value="Dislike ${post.dislikes}"/>
+                                    <input type="submit" value="Dislike ${post.dislike}"/>
                                 </form:form>
 
                             </div>
-                            <p>${post.text}</p>
+                            <p>${post.description}</p>
                         </div>
                         <div class="clr"></div>
                     </li>
                 </c:forEach>
             </ul>
-            <form:form method="POST" modelAttribute="mybox"
+            <form:form method="POST" modelAttribute="box"
                        action="/saveComment/id=${current}/next=${next}/prev=${previous}">
 
-                <form:textarea path="text"/>
+                <form:textarea path="description"/>
 
 
                 <input type="submit" value="Uložit koment"/>

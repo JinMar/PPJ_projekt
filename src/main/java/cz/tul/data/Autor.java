@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * Created by Marek on 11.05.2016.
@@ -16,9 +17,9 @@ import java.util.Set;
 @Table(name = "Autor")
 public class Autor {
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID", columnDefinition = "BINARY(16)")
+    private UUID id;
 
-    private String id;
 
     @Column(name = "createDate")
     private Date createdate;
@@ -34,7 +35,7 @@ public class Autor {
 
     }
 
-    public Autor(String id, String name, Date createDate) {
+    public Autor(UUID id, String name, Date createDate) {
         this.name = name;
         this.createdate = createDate;
         this.id = id;
@@ -42,7 +43,7 @@ public class Autor {
     }
 
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
@@ -62,7 +63,7 @@ public class Autor {
         return comments;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

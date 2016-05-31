@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * Created by Marek on 11.05.2016.
@@ -13,10 +14,11 @@ import java.util.Date;
 @Document(collection = "Comment")
 @Table(name = "Comment")
 public class Comment {
-    @Id
-    @Column(name = "ID_Coment")
 
-    private String id;
+    @Id
+    @Column(name = "ID_Coment", columnDefinition = "BINARY(16)")
+    private UUID id;
+
     @Column(name = "Description")
     private String description;
 
@@ -34,7 +36,7 @@ public class Comment {
     @Column(name = "dislike", columnDefinition = "int default 0")
     private int dislike;
 
-    public Comment(String id, String description, Date createDate, Images images, Autor autor) {
+    public Comment(UUID id, String description, Date createDate, Images images, Autor autor) {
         this.id = id;
         this.description = description;
         this.createDate = createDate;
@@ -62,7 +64,7 @@ public class Comment {
         this.dislike = dislike;
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
@@ -82,7 +84,7 @@ public class Comment {
         return autor;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

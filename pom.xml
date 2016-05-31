@@ -131,7 +131,11 @@
             <version>4.2.6.RELEASE</version>
         </dependency>
 
-
+        <dependency>
+            <groupId>com.squareup.retrofit</groupId>
+            <artifactId>retrofit</artifactId>
+            <version>1.9.0</version>
+        </dependency>
     </dependencies>
 
     <build>
